@@ -7,5 +7,6 @@ public class Bulletin {
 	
 	public Long id;
 	public String name;
+	public boolean mandatory;
 
 }
