@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myAppUsers">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    
+</head>
+<body>
+<div  ng-controller="usersController">
+	<p> Users name is: {{ data.value }}
+    </p>
+    <p> Simple is: {{ getSimple() }}
+    </p>
+    
+    <ng-include src="menu.html" />
+    <p> Username is {{username.value}}</p>
+</div>
+
+	<script src="js/angular.js"></script>
+    <script src="js/angular-resource.js"></script>
+    <script src="js/users/my-app-users.js"></script>
+  	<script src="js/users/users-service.js"></script>
+  	<script src="js/users/users-controller.js"></script>
+</body>
+</html>

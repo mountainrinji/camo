@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="camoApplication">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    
+</head>
+<body>
+	<script src="/camo/content/js/angular.js"></script>
+    <script src="/camo/content/js/angular-resource.js"></script>
+    <script src="/camo/content/js/camo-resource.js"></script>
+    <script src="/camo/content/js/bulletin-service.js"></script>
+    <script src="/camo/content/js/bulletin-controller.js"></script>
+    <script src="/camo/content/js/app.js"></script>
+
+
+<div  ng-controller="bulletinController">
+	<form>
+        <input type="text" name="Bulletin name" ng-model="createBulletinForm.name"> Bulletin name <br/>
+        <input type="checkbox" name="Mandatory"  ng-model="createBulletinForm.mandatory" 
+        	ng-true-value="true" ng-false-value="false" > Is mandatory? <br/>
+        	
+        <button ng-click="createBulletinForm.createBulletin()"> Create bulletin </button>
+    </form>
+</div>
+
+  
+  	
+</body>
+</html>
