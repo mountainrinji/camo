@@ -14,13 +14,14 @@
 
         <property name="connection_pool_size">1</property>
 
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">none</property>
 
         <property name="show_sql">true</property>
 
 
 
        <mapping class="pl.mountainrinji.db.entities.User"/>
+       <mapping class="pl.mountainrinji.db.entities.VehicleBulletin"/>
 
     </session-factory>
 </hibernate-configuration>

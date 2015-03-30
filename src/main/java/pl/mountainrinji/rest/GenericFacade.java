@@ -12,11 +12,15 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.hibernate.Session;
+
 import pl.mountainrinji.db.AnnotateDrivenDAO;
 import pl.mountainrinji.db.CTQuery;
 import pl.mountainrinji.db.HibernateUtil;
+import pl.mountainrinji.db.entities.VehicleBulletin;
 import pl.mountainrinji.facade.base.OneValue;
 import pl.mountainrinji.facade.base.QueryParams;
+import pl.mountainrinji.rest.json.Bulletin;
 import pl.mountainrinji.spring.ApplicationContextProvider;
 
 @Path("/genericFacade")
@@ -44,16 +48,18 @@ public class GenericFacade {
 	@Path("/newBulletin")
 	public Response newBulletin(Bulletin bulletin) {
 		bulletin.name = "name";
+		
+		VehicleBulletin vb = new VehicleBulletin();
+		vb.setMandatory(false);
+		vb.setName(bulletin.name);
+		
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		session.beginTransaction();
+		session.save(vb);
+		session.getTransaction().commit();
+		
 		return null;
 	}
-    
-    @POST
-   	@Consumes(MediaType.APPLICATION_JSON)
-   	@Path("/car")
-   	public Response car(Car car) {
-   		car.name = "name";
-   		return null;
-   	}
 
     
     private AnnotateDrivenDAO getAnnotateDrivenDAO() {

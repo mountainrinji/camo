@@ -1,4 +1,4 @@
-package pl.mountainrinji.rest;
+package pl.mountainrinji.rest.json;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
